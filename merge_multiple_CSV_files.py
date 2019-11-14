@@ -6,7 +6,7 @@ import xlsxwriter
 import os
 
 dfs=glob.glob("*.csv")
-writer=pd.ExcelWriter("WGCNA.xlsx", engine="xlsxwriter")
+writer=pd.ExcelWriter(sys.argv[1] + ".xlsx", engine="xlsxwriter")
 for f in dfs:
     df=pd.read_csv(f)
     df.to_excel(writer, sheet_name=os.path.splitext(os.path.basename(f))[0], index=False)
